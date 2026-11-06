@@ -18,15 +18,21 @@ Tiene dos riesgos principales:
 
 Fuga de información: Cualquiera puede ver datos internos del servidor (nombre del equipo, versión de Windows y PHP, cuánto disco y memoria tiene libre,etc), lo que le facilita a un atacante buscar vulnerabilidades.
 Sobrecarga del servidor: Como cada petición abre un proceso de PowerShell en segundo plano, si alguien bombardea la API con muchas peticiones seguidas, el servidor se puede saturar y caer.
+
 4. Con polling cada 5 segundos, ¿cuántos pedidos por minuto recibe el servidor si hay 50 personas mirando?
 
 Recibe 600 pedidos por minuto.
+
 Calculo:
+
 Cada persona hace 1 pedido cada 5 segundos, o sea 12 pedidos por minuto
+
 60/5=12
 
 Con 50 personas conectadas al mismo tiempo: 
+
 50×12=600
+
 600 pedidos por minuto (son 10 pedidos por segundo, cada uno abriendo PowerShell).
 
 5. Si una app solo necesita la temperatura, ¿qué datos recibe de más al llamar a /api/metrics?
